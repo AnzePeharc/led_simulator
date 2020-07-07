@@ -1,0 +1,54 @@
+<MainWindow>:
+    orientation: "vertical"
+    spacing: 10
+    padding: 20
+    input_text: input_text
+    status: status
+    host_data: host_data
+    port_data: port_data
+
+    Label:
+        text: "LED SIMULATOR"
+        bold: True
+        font_size: "30sp"
+        size_hint: (1, 0.6)
+    Label:
+        id: status
+        text: "Connection status"
+
+    TextInput:
+        id: input_text
+        hint_text: "Enter numbers of LEDs, that you want to light, separated with commas"
+        multiline: False
+        size_hint: (1, 0.2)
+
+    Button:
+        text: "Light LEDs"
+        size_hint: (1, 0.2)
+        on_press:
+            root.light_led()
+    BoxLayout:
+        orientation: "horizontal"
+
+        BoxLayout:
+            orientation: "vertical"
+            TextInput:
+                id: host_data
+                hint_text: "Enter host IP"
+                multiline: False
+
+            TextInput:
+                id: port_data
+                hint_text: "Enter host port"
+                multiline: False
+        BoxLayout:
+            orientation: "vertical"
+            Button:
+                text: "Connect to the server"
+                on_press:
+                    root.connect()
+            Button:
+                text: "Disconnect from the server"
+                on_press:
+                    root.disconnect()
+
